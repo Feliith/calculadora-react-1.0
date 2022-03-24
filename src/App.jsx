@@ -18,18 +18,68 @@ class Calculator extends Component {
 
     constructor(props) {
         super(props)
+        this.clearMemory = this.clearMemory.bind(this)
+        this.setOperation = this.setOperation.bind(this)
+        this.addDigit = this.addDigit.bind(this)
     }
 
     clearMemory = () => {
-
+        this.setState({ ...initialState })
     }
 
-    setOperation = () => {
+    setOperation = (operation) => {
+        if (this.state.current === 0) {
+            this.setState({ operation , current: 1 , clearDisplay: true })
+        } else {
+            const equals = operation === '='
+            const currentOperation = this.state.operation
 
+            const values = [ ...this.state.values ]
+
+            switch(currentOperation) {
+                case "/": 
+                    values[0] = values[0] / values[1]
+                    break
+                case "x": 
+                    values[0] = values[0] * values[1]
+                    break
+                case "-": 
+                    values[0] = values[0] - values[1]
+                    break
+                case "+": 
+                    values[0] = values[0] + values[1]
+                    break
+            }
+
+            values[1] = 0
+            this.setState({
+                displayValue: values[0],
+                operation: equals ? null : operation,
+                current: equals ? 0 : 1,
+                clearDisplay: !equals,
+                values
+            })
+        }
     }
 
-    addDigit = () => {
+    addDigit = (digit) => {
+        if (digit === '.' && this.state.displayValue.includes('.')) {
+            return
+        }
 
+        const clearDisplay = this.state.displayValue === '0' || this.state.clearDisplay
+
+        const currentValue = clearDisplay ? '' : this.state.displayValue
+        const displayValue = currentValue + digit
+        this.setState({displayValue, clearDisplay: false})
+
+        if(digit !== '.') {
+            const current = this.state.current
+            const newValue = parseFloat(displayValue)
+            const values = [...this.state.values]
+            values[current] = newValue
+            this.setState({ values })
+        }
     }
 
     render() {
@@ -42,7 +92,7 @@ class Calculator extends Component {
                     <Button label="7" click={this.addDigit} />
                     <Button label="8" click={this.addDigit} />
                     <Button label="9" click={this.addDigit} />
-                    <Button label="*" click={this.setOperation} operation />
+                    <Button label="x" click={this.setOperation} operation />
                     <Button label="4" click={this.addDigit} />
                     <Button label="5" click={this.addDigit} />
                     <Button label="6" click={this.addDigit} />

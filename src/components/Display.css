@@ -2,7 +2,7 @@
 .display {
     background: var(--display-bg);
     color: var(--font-01);
-    font-size: 42px;
+    font-size: 48px;
     border-radius: inherit;
     display: flex;
     align-items: center;

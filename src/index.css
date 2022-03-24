@@ -16,3 +16,7 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}

@@ -15,7 +15,7 @@
 }
 
 .button:active {
-    filter: brightness(120%);
+    filter: brightness(130%);
     border-radius: 12px;
 }
 
@@ -24,15 +24,31 @@
 }
 
 .button.triple {
+    background: var(--ac-btn);
+    color: var(--font-03);
     grid-column: span 3;
+}
+
+.button.triple:active {
+    filter: brightness(110%);
 }
 
 .button.operation {
     background: var(--op-btn);
     color: var(--font-02);
+    font-size: 22px;
+}
+
+.button.operation:active {
+    filter: brightness(110%);
 }
 
 .button.equals {
     background: var(--equals-btn);
     color: var(--font-02)
 }
+
+.button.equals:active {
+    filter: brightness(110%);
+}
+

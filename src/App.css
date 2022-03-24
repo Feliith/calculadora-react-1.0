@@ -5,6 +5,7 @@
 
     --font-01: #e3e3e3;
     --font-02: #001d35;
+    --font-03: #072711;
     
     --digit-btn: #282a2d;
     --op-btn: #5ab3f0;
@@ -14,8 +15,8 @@
 
 .calculator {
     background: var(--calc-bg);
-    width: 240px;
-    height: 400px;
+    width: 280px;
+    height: 440px;
     border-radius: 12px;
     overflow: hidden;
 
@@ -26,7 +27,8 @@
 
 .buttons-wrap {
     padding: 4px;
+    padding-top: 8px;
     display: grid;
     grid-template-columns: repeat(4, 25%);
-    grid-template-rows: 56px 56px 56px 56px 56px;
+    grid-template-rows: 62px 62px 62px 62px 62px;
 }
