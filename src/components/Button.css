@@ -1,0 +1,38 @@
+
+.button {
+    background: var(--digit-btn);
+    color: var(--font-01);
+    font-size: 20px;
+    margin: 4px;
+    border: none;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    cursor: pointer;
+    transition: .18s;
+}
+
+.button:active {
+    filter: brightness(120%);
+    border-radius: 12px;
+}
+
+.button.double {
+    grid-column: span 2;
+}
+
+.button.triple {
+    grid-column: span 3;
+}
+
+.button.operation {
+    background: var(--op-btn);
+    color: var(--font-02);
+}
+
+.button.equals {
+    background: var(--equals-btn);
+    color: var(--font-02)
+}

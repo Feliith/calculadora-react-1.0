@@ -1,0 +1,25 @@
+
+.display {
+    background: var(--display-bg);
+    color: var(--font-01);
+    font-size: 42px;
+    border-radius: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding: 18px;
+    position: relative;
+
+    grid-column: span 4;
+}
+
+.display > span {
+    background: var(--font-01);
+    width: 16px;
+    height: 3px;
+    border-radius: 3px;
+    position: absolute;
+    bottom: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+}
