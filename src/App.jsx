@@ -8,7 +8,7 @@ const initialState = {
     displayValue: '0',
     clearDisplay: false,
     operation: null,
-    values: [0, 0],
+    values: ['', ''],
     current: 0
 }
 
@@ -85,7 +85,11 @@ class Calculator extends Component {
     render() {
         return (
             <div className="calculator">
-                <Display value={this.state.displayValue} />
+                <Display 
+                    valueOne={this.state.values[0]}
+                    opDisplay={this.state.operation}
+                    valueTwo={this.state.values[1]}
+                    current={this.state.current} />
                 <div className="buttons-wrap">
                     <Button label="AC" click={this.clearMemory} triple />
                     <Button label="/" click={this.setOperation} operation />
